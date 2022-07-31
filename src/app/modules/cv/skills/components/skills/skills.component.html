@@ -1,0 +1,71 @@
+
+
+
+<section class="flex flex-wrap">
+  <header class="bg-gray-clair w-full lg:w-1/4 text-center lg:text-right px-14 py-7 md:py-12
+                border-solid border border-gray-timeline lg:border-none"
+          style="border-top-width: 1px;border-bottom-width: 1px;">
+    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold o-section__heading lg:border-none">
+      Compétences
+    </h2>
+    <div></div>
+  </header>
+  <div class="bg-gray w-full lg:w-3/4 px-14 pt-12 pb-6">
+
+    <div *ngFor="let item of data.skills.data">
+      <h3 class="text-gray-heading mb-2 font-semibold">
+        {{item.title}}
+      </h3>
+      <div class="flex flex-wrap mb-6">
+
+        <div class="skill-item w-full md:w-1/2 pr-12" *ngFor="let skill of item.data">
+          <div class="skill-item-content pb-7">
+            <div class="media flex items-start">
+              <div class="figure w-12">
+                <div class="text-yellow-500 uppercase">
+                  {{skill.attributes.value}}<small class="text-xs">%</small>
+                </div>
+              </div>
+              <h3 class="mb-0 text-gray-heading font-semibold">{{skill.attributes.title}}</h3>
+            </div>
+            <div class="bg-gray-timeline mt-2 relative h-1.5">
+              <div class="w-4/5 bg-yellow-500 h-full" data-percent="80" style="width: 80%;" [ngStyle]="{width:skill.attributes.value+'%'}"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap mb-6">
+    </div>
+
+
+      <!-- <div *ngFor="let item of data.educations.data" class="timeline-item relative">
+        <div class="timeline-point bg-yellow-500 w-2.5 h-2.5 absolute rounded-full" style="top: 3px; left:-30px">
+        </div>
+        <div class="item-content pb-6">
+          <div class="flex">
+            <div class="w-2/5 pr-14">
+              <div class="timeframe  mb-1.5 opacity-60 text-xs">
+                {{item.attributes.date_start}} au {{item.attributes.date_end}}
+              </div>
+              <h4 class="title mb-1.5 text-gray-heading text-xs font-medium">
+                <markdown>{{item.attributes.level}}</markdown>
+              </h4>
+              <h3 class="heading mb-1.5 text-gray-heading uppercase font-semibold">
+                {{item.attributes.title}}
+              </h3>
+              <div class="location  mb-1.5 opacity-60 text-xs font-medium">
+                {{item.attributes.place}}
+              </div>
+            </div>
+            <markdown class="w-3/5 pr-14 text-sm">
+              {{item.attributes.content}}
+            </markdown>
+          </div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+  </div>
+</section>

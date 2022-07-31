@@ -1,0 +1,46 @@
+<section class="flex flex-wrap">
+  <header class="bg-gray-clair w-full lg:w-1/4 text-center lg:text-right px-14 py-7 md:py-12
+                 border-solid border-t border-b border-gray-timeline lg:border-none"
+          style="border-top-width: 1px;border-bottom-width: 1px;">
+    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold o-section__heading">
+      Diplômes et formations
+    </h2>
+    <div ></div>
+  </header>
+  <div class="bg-gray w-full lg:w-3/4 px-14 pt-0 pb-6 py-14">
+
+    <!-- {{ data.educations.data|json }} -->
+
+    <div class="timeline relative border-gray-timeline border-l-2 ml-4 pl-6 pt-12" style="border-left-width: 2px;">
+
+      <div class="timeline-end absolute bottom-0 h-px w-4 border-gray-timeline border-b-2" style="left:-9px"></div>
+
+      <div *ngFor="let item of data.educations.data" class="timeline-item relative">
+        <div class="timeline-point bg-yellow-500 w-2.5 h-2.5 absolute rounded-full" style="top: 3px; left:-30px">
+        </div>
+        <div class="item-content pb-6">
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-2/5 pr-14">
+              <div class="timeframe  mb-1.5 opacity-60 text-xs">
+                {{item.attributes.date_start}} au {{item.attributes.date_end}}
+              </div>
+              <h4 class="title mb-1.5 text-gray-heading text-xs font-medium">
+                <markdown>{{item.attributes.level}}</markdown>
+              </h4>
+              <h3 class="heading mb-1.5 text-gray-heading uppercase font-semibold">
+                {{item.attributes.title}}
+              </h3>
+              <div class="location  mb-1.5 opacity-60 text-xs font-medium">
+                {{item.attributes.place}}
+              </div>
+            </div>
+            <markdown class="w-full lg:w-3/5 pr-14 text-sm">
+              {{item.attributes.content}}
+            </markdown>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

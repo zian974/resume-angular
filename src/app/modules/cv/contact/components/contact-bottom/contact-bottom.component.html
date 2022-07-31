@@ -1,0 +1,17 @@
+<section class="flex flex-wrap">
+
+  <header class="bg-gray-sombre w-full lg:w-1/4 text-center lg:text-right px-14 py-7 md:py-12
+                 border-solid border border-gray-timeline lg:border-none"
+          style="border-top-width: 1px;border-bottom-width: 1px;">
+    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold o-section__heading lg:border-none">
+      Contact
+    </h2>
+  </header>
+
+  <div class="bg-gray-clair w-full lg:w-3/4 px-14 pt-12 pb-6 py-14">
+    <strapi-contact-title [contact]="data.contact" [target]="'bottom'"></strapi-contact-title>
+    <hr class="mb-8" />
+    <strapi-contact-item [contact]="data.contact"></strapi-contact-item>
+  </div>
+
+</section>

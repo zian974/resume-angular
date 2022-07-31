@@ -1,0 +1,42 @@
+/**
+ * CUSTOM CSS
+ *
+ * Here you can add your custom CSS code.
+ */
+
+
+
+
+
+/*
+.main-header-title {
+  color: #a4a5a6;
+}
+
+.main-header {
+  height: 64px;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: normal;
+  margin: 0;
+}
+.main-header-nav .navbar {
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.main-header-nav .navbar > .navbar-item {
+
+}
+.main-header-nav .navbar > .navbar-item .navbar-link {
+
+}
+

@@ -1,0 +1,54 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_PATH: "$HOME/.ssh"
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+
+#    - name: Test Angular App
+#      run: npm run test -- --browsers=ChromeHeadless --watch=false --code-coverage
+
+    - name: Build Angular App
+      run: npm run build --cross-origin=anonymous
+
+    # SSH
+    - name: SSH
+      run: |
+            mkdir -p "$HOME/.ssh"
+            echo "${{secrets.SSH_PRIVATE_KEY}}" > "$HOME/.ssh/deploy_key"
+            chmod 600 "$HOME/.ssh/deploy_key"
+            touch "$HOME/.ssh/known_hosts"
+            chmod 600 "$HOME/.ssh/known_hosts"
+
+    # RSYNC
+    - name: rsync
+      run: rsync --msgs2stderr --timeout=5 -rlDvzp --delete-after --exclude=".htaccess" -e "ssh -o StrictHostKeyChecking=no -p 6789 -i $HOME/.ssh/deploy_key" ./dist/zian-app/  www-zian@51.255.50.92:/var/www/html/zian.re
+

@@ -1,0 +1,65 @@
+<section class="flex flex-wrap">
+  <header class="relative w-full lg:w-1/4 px-14 py-7 md:py-12
+                 flex justify-center lg:justify-end
+                 bg-gray-clair text-center lg:text-right
+                 border-solid border-t border-b border-gray-timeline lg:border-none"
+          style="border-top-width: 1px;border-bottom-width: 1px;">
+
+    <div class="absolute top-1 left-2">
+      <a [routerLink]="['/']" class=" flex flex-row items-center text-sm text-yellow-500  hover:text-gray-link">
+        <div class="bg-yellow-500 w-4 h-4"
+             style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
+                    mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat ;
+                    -webkit-mask-size: cover;
+                    mask-size: cover;"></div>
+        <div class="inline-block">retour</div>
+      </a>
+    </div>
+
+    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold">
+      Réalisations
+    </h2>
+    <div class="text-gray-typo">
+    </div>
+
+  </header>
+  <div class="bg-gray w-full lg:w-3/4 ">
+    <div class="flex flex-wrap flex-col md:flex-row justify-center  items-center self-auto md:items-stretch
+                p-12 basis-80
+                space-x-0 md:space-x-6 space-y-6 md:space-y-0">
+
+      <div class="max-w-xs min-w-min rounded overflow-hidden shadow-lg bg-gray-sombre flex flex-col"
+        *ngFor="let item of data.realisations">
+
+        <img class="w-full" src="{{data.strapiUrl + item.attributes.img.data.attributes.formats.small.url}}"
+              alt="{{data.strapiUrl + item.attributes.img.data.attributes.alternativeText}}">
+        <div class="px-6 py-4 flex-grow">
+          <h3 _ngcontent-fuo-c28="" class="text-gray-heading mb-2 font-semibold uppercase text-sm"> {{item.attributes.title}} </h3>
+          <blockquote  class="text-gray-typo text-sm">
+            {{item.attributes.intro}}
+          </blockquote>
+        </div>
+        <div class="p-6">
+          <button [routerLink]="['view', {id:item.id}]"
+                  class="text-black hover:text-white bg-yellow-300 hover:bg-gray-700
+                        focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium
+                        rounded-sm text-sm px-5 py-2.5 mr-2 mb-2
+                        dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            Lire
+          </button>
+        </div>
+        <!-- <div class="px-6 pt-4 pb-2">
+          <span class="inline-block bg-gray-500 rounded-lg px-3 py-1 text-sm font-semibold text-gray-sombre mr-2 mb-2">#AngularJS</span>
+          <span class="inline-block bg-gray-500 rounded-lg px-3 py-1 text-sm font-semibold text-gray-sombre mr-2 mb-2">#Jelix</span>
+          <span class="inline-block bg-gray-500 rounded-lg px-3 py-1 text-sm font-semibold text-gray-sombre mr-2 mb-2">#SIG</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+

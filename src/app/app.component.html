@@ -1,0 +1,35 @@
+<header class="flex items-center justify-between h-16 px-4">
+  <span class="main-header-title">
+    <a [routerLink]="['/']" class="text-yellow-500 hover:text-gray-link uppercase text-sm">zian.re</a>
+  </span>
+  <nav class="main-header-nav">
+    <ul class="flex space-x-4">
+      <li class="navbar-item">
+        <a [routerLink]="['/cv']" class="text-yellow-500 hover:text-gray-link uppercase text-sm" >
+          <div class="bg-yellow-500 w-5 h-5 hover:text-gray-link mb-1"
+               style="-webkit-mask: url(assets/images/home.svg) 50% 50% no-repeat;
+                       mask: url(assets/images/home.svg) 50% 50% no-repeat ;
+                       -webkit-mask-size: cover;
+                       mask-size: cover;">
+          </div>
+          <div class="h-1" ariaCurrentWhenActive="page"routerLinkActive="activebutton"></div>
+        </a>
+      </li>
+      <li class="navbar-item">
+        <a [routerLink]="['/realisations']" class="text-yellow-500 hover:text-gray-link uppercase text-sm"
+           >
+           Réalisations
+           <div class="h-1" ariaCurrentWhenActive="page"routerLinkActive="activebutton"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main [loadingHost]="loadingSvc.globalLoading()">
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <strapi-contact-bottom></strapi-contact-bottom>
+</footer>
