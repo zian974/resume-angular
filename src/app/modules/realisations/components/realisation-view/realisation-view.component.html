@@ -9,45 +9,55 @@
                    relative"
             style="border-top-width: 1px;border-bottom-width: 1px;">
 
-      <div class="absolute top-1 left-2">
+    <div class="flex flex-row items-center">
+      <div class="absolute top-2 left-2 hidden lg:block">
+
         <a [routerLink]="['/realisations']"
-           class="flex flex-row items-center text-sm
-                  text-amber-400 dark:text-yellow-500  hover:text-main dark:hover:text-main-dk">
-          <div class="bg-amber-400 dark:bg-yellow-500 w-4 h-4"
-               style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
+          class="px-6 py-2  text-amber-400 dark:text-yellow-500
+                  focus:border-gray-bd dark:focus:border-gray-bd-dk
+                  font-medium text-sm leading-tight rounded hover:bg-black hover:bg-opacity-5
+                  focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex gap-1">
+
+          <div class="inline-block bg-amber-400 dark:bg-yellow-500 w-4 h-4"
+                style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
                       mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat ;
                       -webkit-mask-size: cover;
-                      mask-size: cover;"></div>
-          <div class="inline-block">retour</div>
+                      mask-size: cover;">
+          </div>
+          Retour
         </a>
       </div>
 
-      <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none">
-        {{ data.realisation.attributes.title }}
-      </h2>
-      <div class="text-typo-subtitle dark:text-typo-subtitle-dk mb-6 lg:mb-0">
-        {{ data.realisation.attributes.intro }}
-      </div>
+        <div class="w-full">
 
-      <ng-container *ngIf="data.realisation.attributes.link">
-        <div class="text-right">
-          <a [href]="data.realisation.attributes.link"
-             class="inline-flex flex-row items-center text-sm
-                    text-amber-400 dark:text-yellow-500  hover:text-main dark:hover:text-main-dk"
-            target="_blank">
-            <div class="bg-amber-400 dark:bg-yellow-500 w-6 h-6 mr-1"
-                  style="-webkit-mask: url(assets/images/link.svg) 50% 50% no-repeat;
-                        mask: url(assets/images/link.svg) 50% 50% no-repeat ;
-                        -webkit-mask-size: cover;
-                        mask-size: cover;">
+          <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none">
+            {{ data.realisation.attributes.title }}
+          </h2>
+          <div class="text-typo-subtitle dark:text-typo-subtitle-dk mb-6 lg:mb-0">
+            {{ data.realisation.attributes.intro }}
+          </div>
+
+          <ng-container *ngIf="data.realisation.attributes.link">
+            <div class="text-right">
+              <a [href]="data.realisation.attributes.link"
+                class="inline-flex flex-row items-center text-sm
+                        text-amber-400 dark:text-yellow-500  hover:text-main dark:hover:text-main-dk"
+                target="_blank">
+                <div class="bg-amber-400 dark:bg-yellow-500 w-6 h-6 mr-1"
+                      style="-webkit-mask: url(assets/images/link.svg) 50% 50% no-repeat;
+                            mask: url(assets/images/link.svg) 50% 50% no-repeat ;
+                            -webkit-mask-size: cover;
+                            mask-size: cover;">
+                </div>
+                <div class="inline-block">site</div>
+              </a>
             </div>
-            <div class="inline-block">site</div>
-          </a>
+          </ng-container>
         </div>
-      </ng-container>
+      </div>
     </header>
 
-    <div class="bg-gray-low lg:dark:bg-main-dk
+    <div class="bg-gray-low dark:bg-main-dk
                 w-full lg:w-3/4 px-14 pt-6 lg:pt-12 pb-12">
       <div class="image-shadow image-rotate w-full md:w-3/4 m-auto">
         <img src="{{data.strapiUrl + data.realisation.attributes.img.data.attributes.url}}"

@@ -1,3 +1,5 @@
+
+
 <section class="flex flex-wrap">
 
   <header class="bg-gray-head dark:bg-gray-head-dk lg:bg-gray-mid lg:dark:bg-gray-low-dk
@@ -7,24 +9,34 @@
                  relative"
           style="border-top-width: 1px;border-bottom-width: 1px;">
 
-    <div class="absolute top-1 left-2">
-      <a [routerLink]="['/']"
-         class="flex flex-row items-center text-sm
-                text-amber-400 dark:text-yellow-500 hover:text-main dark:hover:text-main-dk">
-        <div class="bg-amber-400 dark:bg-yellow-500 w-4 h-4"
-             style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
+    <div class="flex flex-row items-center">
+
+      <!-- <a [routerLink]="['/']"
+          class="hidden lg:inline-block px-6 py-2 border border-amber-400 dark:border-yellow-500 text-amber-400 dark:text-yellow-500
+                  focus:border-gray-bd dark:focus:border-gray-bd-dk
+                  font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5
+                  focus:outline-none focus:ring-0 transition duration-150 ease-in-out flex gap-1">
+
+        <div class="inline-block bg-amber-400 dark:bg-yellow-500 w-4 h-4"
+              style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
                     mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat ;
                     -webkit-mask-size: cover;
-                    mask-size: cover;"></div>
-        <div class="inline-block">retour</div>
-      </a>
+                    mask-size: cover;">
+        </div>
+      </a> -->
+
+      <div class="w-full">
+        <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none lg:float-right">
+          Réalisations
+        </h2>
+
+        <div class="text-gray-typo">
+        </div>
+      </div>
     </div>
 
-    <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none">
-      Réalisations
-    </h2>
-    <div class="text-gray-typo">
-    </div>
+
+
   </header>
 
   <div class="bg-main dark:bg-main-dk
