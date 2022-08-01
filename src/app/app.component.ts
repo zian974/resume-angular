@@ -9,25 +9,37 @@ import { LoadingService } from './shared/modules/loading/loading.service';
 })
 export class AppComponent implements OnInit {
 
-  public constrastMode: string = "light";
-
   constructor(
     public loadingSvc: LoadingService,
     protected readonly renderer2: Renderer2
   ) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if ( (('theme' in localStorage) && localStorage.theme === 'dark') || ( window.matchMedia('(prefers-color-scheme: dark)').matches) ) {
+      this.addDarkMode();
+    } else {
+      this.removeDarkMode();
+    }
+  }
 
   toggleContrastMode() {
-
-    if ( this.constrastMode === 'light' ) {
-      this.constrastMode ='dark';
-      this.renderer2.addClass( document.querySelector('html'), 'dark' );
+    if ( localStorage.theme === 'light' ) {
+      this.addDarkMode();
     }
     else {
-      this.constrastMode ='light';
-      this.renderer2.removeClass(document.querySelector('html'), 'dark');
+      this.removeDarkMode();
     }
+
+  }
+
+  addDarkMode() {
+    localStorage.theme ='dark';
+    this.renderer2.addClass( document.querySelector('html'), 'dark' );
+  }
+
+  removeDarkMode() {
+    localStorage.theme = 'light'
+    this.renderer2.removeClass( document.querySelector('html'), 'dark');
   }
 }
