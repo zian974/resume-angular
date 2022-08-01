@@ -10,9 +10,9 @@ interface ComponentData {
   templateUrl: './contact-item.component.html',
   styles: [
     `
-      /* :host {
+      :host {
         display: block;
-      } */
+      }
     `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush

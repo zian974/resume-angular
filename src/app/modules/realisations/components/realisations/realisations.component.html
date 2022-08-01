@@ -1,13 +1,17 @@
 <section class="flex flex-wrap">
-  <header class="relative w-full lg:w-1/4 px-14 py-7 md:py-12
-                 flex justify-center lg:justify-end
-                 bg-gray-clair text-center lg:text-right
-                 border-solid border-t border-b border-gray-timeline lg:border-none"
+
+  <header class="bg-gray-head dark:bg-gray-head-dk lg:bg-gray-mid lg:dark:bg-gray-low-dk
+                 border-solid border-y border-gray-bd dark:border-gray-bd-dk lg:border-none
+                 w-full lg:w-1/4 px-14 py-6 lg:py-12
+                 text-center lg:text-right
+                 relative"
           style="border-top-width: 1px;border-bottom-width: 1px;">
 
     <div class="absolute top-1 left-2">
-      <a [routerLink]="['/']" class=" flex flex-row items-center text-sm text-yellow-500  hover:text-gray-link">
-        <div class="bg-yellow-500 w-4 h-4"
+      <a [routerLink]="['/']"
+         class="flex flex-row items-center text-sm
+                text-amber-400 dark:text-yellow-500 hover:text-main dark:hover:text-main-dk">
+        <div class="bg-amber-400 dark:bg-yellow-500 w-4 h-4"
              style="-webkit-mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat;
                     mask: url(assets/images/keyboard_backspace.svg) 50% 50% no-repeat ;
                     -webkit-mask-size: cover;
@@ -16,35 +20,41 @@
       </a>
     </div>
 
-    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold">
+    <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none">
       Réalisations
     </h2>
     <div class="text-gray-typo">
     </div>
-
   </header>
-  <div class="bg-gray w-full lg:w-3/4 ">
-    <div class="flex flex-wrap flex-col md:flex-row justify-center  items-center self-auto md:items-stretch
-                p-12 basis-80
-                space-x-0 md:space-x-6 space-y-6 md:space-y-0">
 
-      <div class="max-w-xs min-w-min rounded overflow-hidden shadow-lg bg-gray-sombre flex flex-col"
-        *ngFor="let item of data.realisations">
+  <div class="bg-main dark:bg-main-dk
+              w-full lg:w-3/4 px-14 pt-6 lg:pt-12 pb-12">
+
+    <div class="flex flex-wrap flex-col md:flex-row self-auto md:items-stretch
+    justify-start justify-items-start
+                gap-6">
+
+      <div class="flex flex-col bg-gray-high dark:bg-gray-high-dk
+                  max-w-xs min-w-min rounded overflow-hidden shadow-lg"
+           *ngFor="let item of data.realisations">
 
         <img class="w-full" src="{{data.strapiUrl + item.attributes.img.data.attributes.formats.small.url}}"
               alt="{{data.strapiUrl + item.attributes.img.data.attributes.alternativeText}}">
+
         <div class="px-6 py-4 flex-grow">
-          <h3 _ngcontent-fuo-c28="" class="text-gray-heading mb-2 font-semibold uppercase text-sm"> {{item.attributes.title}} </h3>
+          <h3 _ngcontent-fuo-c28=""
+              class="text-typo-title dark:text-typo-title-dk mb-2 font-semibold uppercase text-sm"> {{item.attributes.title}} </h3>
           <blockquote  class="text-gray-typo text-sm">
             {{item.attributes.intro}}
           </blockquote>
         </div>
         <div class="p-6">
           <button [routerLink]="['view', {id:item.id}]"
-                  class="text-black hover:text-white bg-yellow-300 hover:bg-gray-700
+                  class="text-black hover:text-white
                         focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium
                         rounded-sm text-sm px-5 py-2.5 mr-2 mb-2
-                        dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                        bg-amber-400 hover:bg-typo
+                        dark:bg-yellow-500 dark:hover:bg-typo">
             Lire
           </button>
         </div>

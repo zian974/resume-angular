@@ -1,14 +1,14 @@
-<h1 class="text-4xl mb-2">
-  <span class="block font-light lowercase">
+<h1 class="text-4xl mb-4">
+  <span class="block text-typo dark:text-typo-dk font-light lowercase">
     {{contact.attributes?.prenom}}
   </span>
-  <span class="block font-bold uppercase text-yellow-500">
+  <span class="block text-amber-400 dark:text-yellow-500 font-bold uppercase">
     {{contact.attributes?.nom}}
   </span>
 </h1>
 
 <ng-container *ngIf="target==='CV'">
-  <h2 class="font-light text-sm ml-1 text-gray-typo mb-4">
+  <h2 class="font-light text-sm ml-1 text-typo dark:text-typo-dk mb-4">
     <span class="">
       {{contact.attributes?.title}}
     </span>

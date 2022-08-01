@@ -17,7 +17,8 @@ export class CvComponent implements OnInit {
     type: ""
   }
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
