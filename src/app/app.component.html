@@ -7,7 +7,7 @@
 
   <nav class="main-header-nav w-full lg:w-3/4 pr-6 lg:pr-0 justify-end">
     <div class="lg:w-3/4">
-      <ul class="flex space-x-4 float-right">
+      <ul class="flex items-center space-x-4 float-right">
         <li class="navbar-item">
           <a [routerLink]="['/cv']"
              class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm" >
@@ -28,16 +28,21 @@
           </a>
         </li>
         <li class="navbar-item">
-          <button type="button" (click)="toggleContrastMode()"
+          <!-- <button type="button"
                   class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm" >
-            <div class="bg-amber-400 dark:bg-yellow-500 w-5 h-5 hover:text-typo dark:hover:text-typo-dk mb-1"
-                 style="-webkit-mask: url(assets/images/contrast.svg) 50% 50% no-repeat;
-                         mask: url(assets/images/contrast.svg) 50% 50% no-repeat ;
-                         -webkit-mask-size: cover;
-                         mask-size: cover;">
-            </div>
+
             <div class="h-1" ariaCurrentWhenActive="page" routerLinkActive="activebutton"></div>
-          </button>
+          </button> -->
+          <button type="button" (click)="toggleContrastMode()"
+          class="inline-block px-6 py-2 border border-amber-400 dark:border-yellow-500 text-amber-400 dark:text-yellow-500
+          focus:border-gray-bd dark:focus:border-gray-bd-dk
+          font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5
+          focus:outline-none focus:ring-0 transition duration-150 ease-in-out"><div class="bg-amber-400 dark:bg-yellow-500 w-5 h-5 hover:text-typo dark:hover:text-typo-dk mb-1"
+          style="-webkit-mask: url(assets/images/contrast.svg) 50% 50% no-repeat;
+                  mask: url(assets/images/contrast.svg) 50% 50% no-repeat ;
+                  -webkit-mask-size: cover;
+                  mask-size: cover;">
+     </div></button>
         </li>
       </ul>
     </div>
