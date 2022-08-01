@@ -1,52 +1,33 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import {  NavigationEnd, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Component,  OnInit, Renderer2 } from '@angular/core';
 import { LoadingService } from './shared/modules/loading/loading.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
-  public activeLinkClass: string = '';
-
-  protected hostElement!: HTMLDivElement;
-
-  private onComponentDestroy$ = new Subject;
+  public constrastMode: string = "light";
 
   constructor(
     public loadingSvc: LoadingService,
-    protected readonly renderer: Renderer2,
-    public route: Router,
-    protected readonly elementRef: ElementRef,
+    protected readonly renderer2: Renderer2
   ) {
-    this.hostElement = this.elementRef.nativeElement;
   }
 
-  ngOnInit() {
-    (this.route.events).subscribe(event =>
-      {
-        if ( event instanceof NavigationEnd ) {
-          console.log(event.url);
-          this.hostElement.querySelectorAll('.navbar-item a').forEach( (el: Element) => {
-            console.log((<any>el).href)
-            if ( (<HTMLLinkElement>el).href === event.url ) {
-              console.log("OK")
-            }
-          });
-        }
+  ngOnInit() {}
 
-      });
-  }
+  toggleContrastMode() {
 
-  ngAfterViewInit(): void {
-
-  }
-
-  ngOnDestroy(): void {
-    this.onComponentDestroy$.next();
-    this.onComponentDestroy$.complete();
+    if ( this.constrastMode === 'light' ) {
+      this.constrastMode ='dark';
+      this.renderer2.addClass( document.querySelector('html'), 'dark' );
+    }
+    else {
+      this.constrastMode ='light';
+      this.renderer2.removeClass(document.querySelector('html'), 'dark');
+    }
   }
 }

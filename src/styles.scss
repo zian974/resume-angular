@@ -2,11 +2,67 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'assets/css/tailwind.css';
 
-@import 'assets/css/main.css';
-
 @import 'assets/css/loader.css';
 
 @import 'assets/css/spinner.css';
+
+
+body {
+  font-family: 'Roboto', 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+  height: 2px;
+  color: #ccc;
+  background: #404242;
+  font-size: 0;
+  border: 0;
+}
+
+
+.citation {
+  display: flex;
+  flex-direction: row;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+
+.citation > .border {
+  display: block;
+  width: 5px;
+  background: rgb(224, 168, 13);
+  border-radius: 2.5px;
+}
+
+.citation blockquote {
+  position: relative;
+  font-style: italic;
+  text-align: center;
+  width: 80%;
+  line-height: 24px;
+  width: 100%;
+}
+
+.citation blockquote:before,
+.citation blockquote:after{
+  // color: #E8E8E8;
+  font-size: 34px;
+}
+
+.citation blockquote:before{
+  content: "\00201C ";
+
+  position: absolute;
+  right: 100%;
+  top: 0;
+}
+
+.citation blockquote:after{
+  content: ' \00201E';
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+}
 
 .activebutton {
   border-bottom: 2px solid rgba(234, 179, 8, var(--tw-text-opacity));

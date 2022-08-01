@@ -1,8 +1,14 @@
 <section class="flex flex-wrap">
-  <header class="bg-gray-sombre w-full lg:w-1/4 text-center px-14 pt-12 pb-6">
+
+  <header class="bg-gray-head dark:bg-gray-head-dk lg:bg-gray-high lg:dark:bg-gray-high-dk
+                 w-full lg:w-1/4 px-14 pt-6 lg:pt-12 pb-0 lg:pb-12
+                 text-center">
     <strapi-contact-title [contact]="data.contact" [target]="'CV'"></strapi-contact-title>
   </header>
-  <div class="bg-gray-clair w-full lg:w-3/4 px-14 pt-12 pb-6 py-14">
-    <strapi-contact-item [contact]="data.contact"></strapi-contact-item>
+
+  <div class="bg-gray-low dark:bg-gray-low-dk
+              w-full lg:w-3/4 px-14 pt-6 lg:pt-12 pb-0 lg:pb-6">
+    <strapi-contact-item [contact]="data.contact" class="lg:w-10/12"></strapi-contact-item>
   </div>
+
 </section>

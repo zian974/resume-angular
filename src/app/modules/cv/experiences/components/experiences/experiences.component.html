@@ -1,23 +1,28 @@
 <section class="stripped flex flex-wrap">
-  <header class="bg-gray-sombre w-full lg:w-1/4 text-center text-center lg:text-right px-14 py-7 md:py-12
-                 border-solid border border-gray-timeline lg:border-none"
-          style="border-top-width: 1px;border-bottom-width: 1px;">
 
-    <h2 class="text-gray-heading leading-6 text-lg uppercase font-semibold o-section__heading">
+  <header class="bg-gray-head dark:bg-gray-head-dk lg:bg-gray-high lg:dark:bg-gray-high-dk
+                 border-solid border-y border-gray-bd dark:border-gray-bd-dk lg:border-none
+                 w-full lg:w-1/4 px-14 py-6 lg:py-12
+                 text-center lg:text-right"
+          style="border-top-width: 1px;border-bottom-width: 1px;">
+    <h2 class="text-typo-title dark:text-typo-title-dk leading-6 text-lg uppercase font-semibold lg:border-none">
       Expériences
     </h2>
     <div></div>
   </header>
-  <div class="bg-gray-clair w-full lg:w-3/4 px-14 pt-0 pb-6 py-14">
 
-    <!-- {{ data.experiences.data|json }} -->
+  <div class="bg-gray-low dark:bg-gray-low-dk
+              w-full lg:w-3/4 px-14 pt-6 lg:pt-12 pb-6">
 
-    <div class="timeline relative border-gray-timeline border-l-2 ml-4 pl-6 pt-12" style="border-left-width: 2px;">
+    <div class="timeline relative border-gray-bd dark:border-gray-bd-dk border-l-2 ml-4 pl-6 pt-12 lg:w-10/12"
+         style="border-left-width: 2px;">
 
-      <div class="timeline-end absolute bottom-0 h-px w-4 border-gray-timeline border-b-2" style="left:-9px"></div>
+      <div class="timeline-end absolute bottom-0 h-px w-4 border-gray-bd dark:border-gray-bd-dk border-b-2"
+           style="left:-9px"></div>
 
       <div *ngFor="let item of data.experiences.data" class="timeline-item relative">
-        <div class="timeline-point bg-yellow-500 w-2.5 h-2.5 absolute rounded-full" style="top: 3px; left:-30px">
+        <div class="timeline-point bg-amber-400 w-2.5 h-2.5 absolute rounded-full"
+             style="top: 3px; left:-30px">
         </div>
         <div class="item-content pb-6">
           <div class="flex flex-wrap">
@@ -25,10 +30,10 @@
               <div class="timeframe  mb-1.5 opacity-60 text-xs">
                 {{item.attributes.date_start}} au {{item.attributes.date_end}}
               </div>
-              <h4 class="title mb-1.5 text-gray-heading text-xs font-medium">
+              <h4 class="title mb-1.5 text-typo-title dark:text-typo-title-dk text-xs font-medium">
                 {{item.attributes.title}}
               </h4>
-              <h3 class="heading mb-1.5 text-gray-heading uppercase font-semibold">
+              <h3 class="heading mb-1.5 text-typo-title dark:text-typo-title-dk uppercase font-semibold">
                 {{item.attributes.company}}
               </h3>
               <div class="location  mb-1.5 opacity-60 text-xs font-medium">

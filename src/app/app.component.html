@@ -1,32 +1,57 @@
-<header class="flex items-center justify-between h-16 px-4">
-  <span class="main-header-title">
-    <a [routerLink]="['/']" class="text-yellow-500 hover:text-gray-link uppercase text-sm">zian.re</a>
+<header class="bg-gray-100 dark:bg-gray-high-dk flex items-center h-16 shadow-md absolute top-0 z-10 w-full">
+
+  <span class="main-header-title lg:w-1/4 px-4 ">
+    <a [routerLink]="['/']"
+       class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm">zian.re</a>
   </span>
-  <nav class="main-header-nav">
-    <ul class="flex space-x-4">
-      <li class="navbar-item">
-        <a [routerLink]="['/cv']" class="text-yellow-500 hover:text-gray-link uppercase text-sm" >
-          <div class="bg-yellow-500 w-5 h-5 hover:text-gray-link mb-1"
-               style="-webkit-mask: url(assets/images/home.svg) 50% 50% no-repeat;
-                       mask: url(assets/images/home.svg) 50% 50% no-repeat ;
-                       -webkit-mask-size: cover;
-                       mask-size: cover;">
-          </div>
-          <div class="h-1" ariaCurrentWhenActive="page"routerLinkActive="activebutton"></div>
-        </a>
-      </li>
-      <li class="navbar-item">
-        <a [routerLink]="['/realisations']" class="text-yellow-500 hover:text-gray-link uppercase text-sm"
-           >
-           Réalisations
-           <div class="h-1" ariaCurrentWhenActive="page"routerLinkActive="activebutton"></div>
-        </a>
-      </li>
-    </ul>
+
+  <nav class="main-header-nav lg:w-3/4 justify-end">
+    <div class="lg:w-3/4">
+      <ul class="flex space-x-4 float-right">
+        <li class="navbar-item">
+          <a [routerLink]="['/cv']"
+             class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm" >
+            <div class="bg-amber-400 dark:bg-yellow-500 w-5 h-5 hover:text-typo dark:hover:text-typo-dk mb-1"
+                 style="-webkit-mask: url(assets/images/home.svg) 50% 50% no-repeat;
+                         mask: url(assets/images/home.svg) 50% 50% no-repeat ;
+                         -webkit-mask-size: cover;
+                         mask-size: cover;">
+            </div>
+            <div class="h-1" ariaCurrentWhenActive="page" routerLinkActive="activebutton"></div>
+          </a>
+        </li>
+        <li class="navbar-item">
+          <a [routerLink]="['/realisations']"
+             class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm">
+             Réalisations
+             <div class="h-1" ariaCurrentWhenActive="page" routerLinkActive="activebutton"></div>
+          </a>
+        </li>
+        <li class="navbar-item">
+          <button type="button" (click)="toggleContrastMode()"
+                  class="text-amber-400 dark:text-yellow-500 hover:text-typo dark:hover:text-typo-dk uppercase text-sm" >
+            <div class="bg-amber-400 dark:bg-yellow-500 w-5 h-5 hover:text-typo dark:hover:text-typo-dk mb-1"
+                 style="-webkit-mask: url(assets/images/contrast.svg) 50% 50% no-repeat;
+                         mask: url(assets/images/home.svg) 50% 50% no-repeat ;
+                         -webkit-mask-size: cover;
+                         mask-size: cover;">
+            </div>
+            <div class="h-1" ariaCurrentWhenActive="page" routerLinkActive="activebutton"></div>
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 
-<main [loadingHost]="loadingSvc.globalLoading()">
+<!-- <div class="flex flex-row items-center">
+  <div style="width: 32px; height: 32px" class="border-bd bg-highlight"></div>
+  <div style="width: 32px; height: 32px" class="border-bd bg-amber-400"></div>
+  <div style="width: 32px; height: 32px; background-color: #e0a80d" class="border-bd"></div>
+  <div style="width: 32px; height: 32px" class="border-bd bg-yellow-500"></div>
+</div> -->
+
+<main [loadingHost]="loadingSvc.globalLoading()" class="mt-16">
   <router-outlet></router-outlet>
 </main>
 
