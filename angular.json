@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "zian-app": {
+      "i18n": {
+        "sourceLocale": "fr"
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
