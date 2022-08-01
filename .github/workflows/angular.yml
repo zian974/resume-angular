@@ -48,7 +48,12 @@ jobs:
             touch "$HOME/.ssh/known_hosts"
             chmod 600 "$HOME/.ssh/known_hosts"
 
+
     # RSYNC
     - name: rsync
-      run: rsync --msgs2stderr --timeout=5 -rlDvzp --delete-after --exclude=".htaccess" -e "ssh -o StrictHostKeyChecking=no -p 6789 -i $HOME/.ssh/deploy_key" ./dist/zian-app/  www-zian@51.255.50.92:/var/www/html/zian.re
+      if: github.event_name == 'pull_request'
+      run: rsync --msgs2stderr --dry-run --timeout=5 -rlDvzp --delete-after --exclude=".htaccess" -e "ssh -o StrictHostKeyChecking=no -p 6789 -i $HOME/.ssh/deploy_key" ./dist/zian-app/  www-zian@51.255.50.92:/var/www/html/zian.re
 
+    - name: rsync
+      if: github.event_name != 'pull_request'
+      run: rsync --msgs2stderr --timeout=5 -rlDvzp --delete-after --exclude=".htaccess" -e "ssh -o StrictHostKeyChecking=no -p 6789 -i $HOME/.ssh/deploy_key" ./dist/zian-app/  www-zian@51.255.50.92:/var/www/html/zian.re
